@@ -13,6 +13,7 @@ const Slick: React.FC<ISlickProps> = (props) => {
     <section className={`${styles.slick}`}>
       <div className={styles.welcome}>
         <div>Web part property value: <strong>{escape(description)}</strong></div>
+        <div>Updated 8 September 2026</div>
       </div>
     </section>
   );

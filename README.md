@@ -2,34 +2,27 @@
 
 ## Summary
 
-Short summary on functionality and used technologies.
+Eventually will be a carousel
 
 ## Used SharePoint Framework Version
 
 ![version](https://img.shields.io/badge/version-1.23.2-green.svg)
 
-## Applies to
-
-- [SharePoint Framework](https://aka.ms/spfx)
-- [Microsoft 365 tenant](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant)
-
-> Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
-
 ## Prerequisites
 
-> Any special pre-requisites?
+> None at the moment
 
 ## Solution
 
-| Solution    | Author(s)                                               |
-| ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+| Solution    | Author(s)            |
+| ----------- | -------------------- |
+| react-slick | PandaColors dev team |
 
 ## Version history
 
-| Version | Date             | Comments        |
-| ------- | ---------------- | --------------- |
-| 1.0.0 | January 29, 2021 | Initial commit |
+| Version | Date             | Comments       |
+| ------- | ---------------- | -------------- |
+| 1.0.0   | September 8, 2026 | Initial commit |
 
 ## Disclaimer
 
@@ -42,13 +35,14 @@ Short summary on functionality and used technologies.
 - Clone this repository
 - Ensure that you are at the solution folder
 - in the command-line run:
-  - `npm install -g @rushstack/heft`
   - `npm install`
-  - `heft start`
-
+  - `npm run start`
+  - `npm run build`
 
 ## Features
 
-Description of the extension that expands upon high-level summary above.
+TODO
 
 ## References
+
+NONE YET

@@ -1,0 +1,51 @@
+name: Deploy Solution react-slick
+on:
+  workflow_dispatch:
+    inputs:
+      purpose:
+        description: "purpose of run"
+        default: ""
+        required: true
+        type: string
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - ".github/workflows/**.yml"
+env:
+  SOLUTION_PKG: react-slick
+
+permissions:
+  # req: Azure login for user-defined managed identity
+  id-token: write
+  # req: Azure login for user-defined managed identity
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.0.0
+      - name: Use Node.js
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: 22.16.0
+      - name: Run npm ci
+        run: npm ci
+      - name: Bundle Heft & Package
+        run: |
+          npm run build
+      - name: CLI for Microsoft 365 Login
+        uses: pnp/action-cli-login@v3.1.0
+        with:
+          APP_ID: ${{ secrets.M365_CICD_APP_CLIENTID }}
+          TENANT: ${{ secrets.TENANT_ID }}
+      - name: CLI for Microsoft 365 Deploy App
+        uses: pnp/action-cli-deploy@v4.0.0
+        with:
+          APP_FILE_PATH: sharepoint/solution/$SOLUTION_PKG.sppkg
+          SKIP_FEATURE_DEPLOYMENT: false
+          OVERWRITE: true
+          SCOPE: sitecollection
+          SITE_COLLECTION_URL: ${{ vars.APP_SITE_CATALOG }}
