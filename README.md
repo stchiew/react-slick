@@ -43,6 +43,10 @@ Eventually will be a carousel
 
 TODO
 
+## Release notes
+
+1.0.0 - update yaml using latest action versions
+
 ## References
 
 NONE YET

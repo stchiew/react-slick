@@ -26,9 +26,9 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.0.0
+        uses: actions/checkout@v6.0.2
       - name: Use Node.js
-        uses: actions/setup-node@v3.8.1
+        uses: actions/setup-node@v6
         with:
           node-version: 22.16.0
       - name: Run npm ci
