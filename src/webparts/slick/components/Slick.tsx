@@ -6,14 +6,16 @@ import { escape } from '@microsoft/sp-lodash-subset';
 const Slick: React.FC<ISlickProps> = (props) => {
 
   const {
-    description
+    description,
+    level
   } = props;
 
   return (
     <section className={`${styles.slick}`}>
       <div className={styles.welcome}>
         <div>Web part property value: <strong>{escape(description)}</strong></div>
-        <div>Updated 8 September 2026</div>
+        <div> Level is {props.level}</div>
+        <div>Updated 13 September 2026</div>
       </div>
     </section>
   );

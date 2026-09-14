@@ -2,7 +2,7 @@
 
 ## Summary
 
-Eventually will be a carousel
+Eventually will be a carousel. Play around with react-slick library.
 
 ## Used SharePoint Framework Version
 
@@ -20,9 +20,10 @@ Eventually will be a carousel
 
 ## Version history
 
-| Version | Date             | Comments       |
-| ------- | ---------------- | -------------- |
-| 1.0.0   | September 8, 2026 | Initial commit |
+| Version | Date               | Comments           |
+| ------- | ------------------ | ------------------ |
+| 1.0.1   | September 13, 2026 | Add property panes |
+| 1.0.0   | September 8, 2026  | Initial commit     |
 
 ## Disclaimer
 
@@ -46,6 +47,7 @@ TODO
 ## Release notes
 
 1.0.0 - update yaml using latest action versions
+1.0.1 - add property panes
 
 ## References
 

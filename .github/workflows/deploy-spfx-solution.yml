@@ -42,7 +42,7 @@ jobs:
       - name: CLI for Microsoft 365 Deploy App
         uses: pnp/action-cli-deploy@v6.0.0
         with:
-          APP_FILE_PATH: sharepoint/solution/react-slick.sppkg
+          APP_FILE_PATH: sharepoint/solution/${{ vars.PKG_NAME }}.sppkg
           SKIP_FEATURE_DEPLOYMENT: false
           OVERWRITE: true
           SCOPE: sitecollection
