@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
-  type IPropertyPaneConfiguration,
+  type IPropertyPaneConfiguration, PropertyPaneToggle, PropertyPaneSlider,
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
@@ -14,6 +14,7 @@ import { ISlickProps } from './components/ISlickProps';
 
 export interface ISlickWebPartProps {
   description: string;
+  sliderSelection:number;
 }
 
 export default class SlickWebPart extends BaseClientSideWebPart<ISlickWebPartProps> {
@@ -22,7 +23,8 @@ export default class SlickWebPart extends BaseClientSideWebPart<ISlickWebPartPro
     const element: React.ReactElement<ISlickProps> = React.createElement(
       Slick,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        level: this.properties.sliderSelection
       }
     );
 
@@ -59,7 +61,7 @@ export default class SlickWebPart extends BaseClientSideWebPart<ISlickWebPartPro
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: strings.FirstPageDescription
           },
           groups: [
             {
@@ -67,7 +69,30 @@ export default class SlickWebPart extends BaseClientSideWebPart<ISlickWebPartPro
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                })
+                }),
+                PropertyPaneToggle("showAdvancedSettings", {
+                  label: strings.Controls.AdvancedToggle.Label,
+                  onText: strings.Controls.AdvancedToggle.OnText,
+                  offText: strings.Controls.AdvancedToggle.OffText,
+                }),
+              ]
+            }
+          ]
+        },
+        {
+          header: {
+            description: strings.SecondPageDescription
+          },
+          groups: [
+            {
+              groupName: strings.AdvancedGroupName,
+              groupFields: [
+                PropertyPaneSlider("sliderSelection", {
+                  label: strings.Controls.Slider.Label,
+                  min: 0,
+                  max: 100,
+                  value: 50,
+                }),
               ]
             }
           ]
